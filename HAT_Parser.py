@@ -9,9 +9,7 @@ class HATParser:
 		#Method to create a new node object and and add it to the graph
 		newNode = myGraph.node()
 		newNode.setLabel(parameters[0])
-		newNode.setInDegree(int(parameters[1]))
-		newNode.setOutDegree(int(parameters[2]))
-		if parameters[3]:
+		if parameters[0] == "root":
 			newNode.setRoot(True)
 		else:
 			newNode.setRoot(False)
@@ -38,4 +36,16 @@ class HATParser:
 				self.genNode(graph,words[1:])
 			if words[0] == "edge:":
 				self.genEdge(graph,words[1:])
+		self.genDegree(graph)
 
+	def incDeg(node,graph,direction):
+		for n in graph.vertices:
+			if n.label == node:
+				if direction == "IN":
+					n.InDegree += 1
+				else:
+					n.OutDegree += 1
+	def genDegree(graph):
+		for e in graph.edges:
+			incDeg(e.start,graph,"OUT")
+			incDeg(e.end,graph,"IN")
