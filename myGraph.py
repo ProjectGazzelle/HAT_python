@@ -2,14 +2,18 @@ class node:
 
 	def __init__(self):
 		self.label = "empty"
-		self.degree = 0
+		self.InDegree = 0
+		self.OutDegree = 0
 		self.root = False
 
 	def setLabel(self, name):
 		self.label = name
 
-	def setDegree(self,num):
-		self.degree = num
+	def setInDegree(self,num):
+		self.InDegree = num
+	
+	def setOutDegree(self,num):
+		self.OutDegree = num
 
 	def setRoot(self,isRoot):
 		self.root = isRoot
