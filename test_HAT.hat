@@ -1,0 +1,12 @@
+#Graph name
+label: test_HAT
+
+#node declaration
+node: test_node 1 false
+node: test_node2 1 false
+node: root 0 true
+
+#edge declaration
+edge: test_node test_node2 10
+edge: root test_node 10
+
